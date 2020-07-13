@@ -12,7 +12,7 @@ class Counter extends Component {
         {/* <img src={this.state.imageUrl} alt="" /> */}
         <span
           style={{ fontSize: 10, fontWeight: "bold" }}
-          className="badge badge-primary m-2"
+          className={this.getBadgeClasses()}
         >
           {this.formatCount()}
         </span>
@@ -21,8 +21,14 @@ class Counter extends Component {
     );
   }
 
+  getBadgeClasses() {
+    let classes = "badge m-2 badge-";
+    classes += this.state.count === 0 ? "warning" : "primary";
+    return classes;
+  }
+
   formatCount() {
-    const { count } = this.state;
+    const { count } = this.state; //object de-structuring
     return count === 0 ? "ZERO" : count;
     // return count === 0 ? <h1>Zero</h1> : count;
   }
