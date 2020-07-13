@@ -19,6 +19,10 @@ class Counter extends Component {
     );
   }
 
+  handleIncrement() {
+    console.log("Increment clicked");
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -29,7 +33,9 @@ class Counter extends Component {
         >
           {this.formatCount()}
         </span>
-        <button className="btn btn-secondary btn-sm">Increment</button>
+        <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">
+          Increment
+        </button>
         {this.renderTags()}
       </React.Fragment>
     );
